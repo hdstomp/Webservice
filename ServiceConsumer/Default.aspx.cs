@@ -14,7 +14,7 @@ namespace ServiceConsumer
             string StartDate;
             string EndDate;
 
-            var ObjMyService 
+           
 
         }
     }

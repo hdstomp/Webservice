@@ -40,7 +40,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">your logo here</a>
+                    <h1>WEBSERVICE TFA</h1>
                 </p>
             </div>
             <div class="float-right">
