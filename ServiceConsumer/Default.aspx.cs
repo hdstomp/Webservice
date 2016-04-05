@@ -19,6 +19,8 @@ namespace ServiceConsumer
             string Car;
             //tete
             //TESt
+
+            string test;
         }
     }
 }
