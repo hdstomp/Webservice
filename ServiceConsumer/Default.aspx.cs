@@ -11,11 +11,13 @@ namespace ServiceConsumer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string StartDate;
-            string EndDate;
+            string CarRegNum;
+            string CarMake;
+            string CarModel;
+            int CarModelYear;
+            string CarColor;
+            string Car;
 
-           
-            //Endring
         }
     }
 }
