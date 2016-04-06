@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
@@ -23,7 +24,7 @@ namespace Save_the_Humans
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
+        Random random = new Random();
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
@@ -102,5 +103,36 @@ namespace Save_the_Humans
         }
 
         #endregion
+
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddEnemy();
+        }
+
+        private void AddEnemy()
+        {
+            ContentControl enemy = new ContentControl();
+            enemy.Template = Resources["EnemyTemplate"] as ControlTemplate;
+            AnimatedEnemy(enemy, 0, playArea.ActualWidth - 100, "(Canvas.Left)");
+            AnimatedEnemy(enemy, random.Next((int)playArea.ActualHeight - 100), random.Next((int)playArea.ActualHeight - 100), "(Canvas.Top)");
+            playArea.Children.Add(enemy);
+
+
+        }
+
+        private void AnimatedEnemy(ContentControl enemy, double from, double to, string propertyToAnimate)
+        {
+            Storyboard storyboard = new Storyboard() { AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever };
+            DoubleAnimation animation = new DoubleAnimation()
+            {
+                From = from,
+                To = to,
+                Duration = new Duration(TimeSpan.FromSeconds(random.Next(4,6)))
+            };
+            Storyboard.SetTarget(animation, enemy);
+            Storyboard.SetTargetProperty(animation, propertyToAnimate);
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
+        }
     }
 }
