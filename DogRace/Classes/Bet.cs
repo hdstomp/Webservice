@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace DogRace.Classes
 {
-    class Bet
+    public class Bet
     {
+        public int Amount;
+        public int Dog;
+        public Guy Bettor;
+
+        public string GetDescription()
+        {
+            return "S";
+        }
+
+        public int PayOut(int Winner)
+        {
+            return 1;
+        }
     }
 }

@@ -12,19 +12,23 @@ namespace DogRace.Classes
         public int StartingPos;
         public int RaceTrackLenght;
         public PictureBox MyPictureBox = null;
-        public int Location = 0;
+        public int Location;
         public Random Randomizer;
+        int randomNum;
 
         public bool Run()
         {
-            
+            randomNum = 20;
+            Location = Location + randomNum;
+            MyPictureBox.Left = StartingPos + Location;
+
             return true;
         }
         
         public void TakeStartingPos()
         {
-            Location = 0;
-            StartingPos = 0;
+         
+            Location = 0;    
         }
     }
 }
